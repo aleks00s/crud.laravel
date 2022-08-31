@@ -6,14 +6,14 @@
             @csrf
             <div class="mb-3">
 
-              <label for="title" class="form-label">Title</label>
-              <input
-                  type="text"
-                  name="title"
-                  class="form-control"
-                  id="title"
-                  placeholder="Title"
-                  value="{{ old('title') }}">
+                <label for="title" class="form-label">Title</label>
+                <input
+                    type="text"
+                    name="title"
+                    class="form-control"
+                    id="title"
+                    placeholder="Title"
+                    value="{{ old('title') }}">
                 @error('title')
                 <p class="text-danger">{{ $message }}</p>
                 @enderror
@@ -30,8 +30,8 @@
                 @error('content')
                 <p class="text-danger">{{ $message }}</p>
                 @enderror
-              </div>
-              <div class="mb-3">
+            </div>
+            <div class="mb-3">
                 <label for="image" class="form-label">Image</label>
                 <input
                     type="text"
@@ -40,32 +40,30 @@
                     id="image"
                     placeholder="Image"
                     value={{  old('title') }}>
-              </div>
-            <div>
-                <label for="category" class="form-label">Category</label>
-            <select class="form-select" id="category" aria-label="Category" name="category_id">
-                @foreach($categories as $category)
-                <option
-                    {{ old('category_id') == $category->id ? ' selected' : ''}}
-                    value="{{ $category->id }}">{{ $category->title }}
-                </option>
-                @endforeach
-            </select>
             </div>
-            <br>
-            <div>
+            <div class="mt-3">
+                <label for="category" class="form-label">Category</label>
+                <select class="form-select" id="category" aria-label="Category" name="category_id">
+                    @foreach($categories as $category)
+                        <option
+                            {{ old('category_id') == $category->id ? ' selected' : ''}}
+                            value="{{ $category->id }}">{{ $category->title }}
+                        </option>
+                    @endforeach
+                </select>
+            </div>
+            <div class="mt-3">
                 <label for="tags" class="form-label">Tags</label>
                 <select class="form-select" multiple id="tags" name="tags[]">
                     @foreach($tags as $tag)
-                    <option value="{{ $tag->id }}">{{ $tag->title }}</option>
+                        <option value="{{ $tag->id }}">{{ $tag->title }}</option>
                     @endforeach
                 </select>
 
             </div>
-            <div>
-                <br>
+            <div class="mt-3">
                 <button type="submit" class="btn btn-primary">Create</button>
             </div>
-          </form>
+        </form>
     </div>
 @endsection
