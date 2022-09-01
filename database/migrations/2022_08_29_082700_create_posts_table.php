@@ -18,13 +18,13 @@ return new class extends Migration
             $table->string('title');
             $table->text('content');
             $table->string('image')->nullable();
-            $table->unsignedBigInteger('category_id')->unsigned()->nullable();
             $table->integer('likes')->unsigned()->nullable();
+            $table->unsignedBigInteger('category_id')->unsigned()->nullable();
             $table->boolean('is_published')->default(1);
             $table->softDeletes();
             $table->timestamps();
 
-            
+
             $table->index('category_id', 'post_category_idx');
             $table->foreign('category_id', 'post_category_fk')->on('categories')->references('id');
         });
