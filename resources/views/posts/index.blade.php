@@ -1,8 +1,13 @@
 @extends('layouts.main')
 @section('content')
+    @can('view', auth()->user())
+        <div class="mt-3">
+            <a href="{{ route('admin.posts.index') }}">Admin</a>
+        </div>
+    @endcan
 
         @foreach ($posts as $post)
-            <div>
+            <div class="mt-3">
                 <a href="{{ route('posts.show', $post->id) }}"> {{ $post->id }} . {{ $post->title}}</a>
             </div>
         @endforeach

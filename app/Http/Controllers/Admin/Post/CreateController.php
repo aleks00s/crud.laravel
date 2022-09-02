@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Controllers\Post;
+namespace App\Http\Controllers\Admin\Post;
 
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\Post\BaseController;
 use App\Models\Category;
 use App\Models\Tag;
 
@@ -13,6 +14,6 @@ class CreateController extends BaseController
     {
         $categories = Category::all();
         $tags = Tag::all();
-        return view('posts.create', compact('categories', 'tags'));
+        return view('admin.posts.create', compact('categories', 'tags'));
     }
 }
