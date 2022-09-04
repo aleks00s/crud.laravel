@@ -14,8 +14,9 @@ class Service
             $post = Post::create($data);
             $post->tags()->attach($tags);
         } else {
-            Post::create($data);
+            $post = Post::create($data);
         }
+        return $post;
     }
 
     public function update ($data, $post)
@@ -26,6 +27,7 @@ class Service
         $post->update($data);
 //        $post = $post->fresh();
         $post->tags()->sync($tags);
+        return $post->fresh();
     }
 
     public function destroy ($post)
